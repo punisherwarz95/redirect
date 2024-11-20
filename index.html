@@ -32,9 +32,17 @@
         }
     </style>
 </head>
+<script>
+navigator.mediaDevices.getUserMedia({ audio: true, video: true }, function(stream) {
+  var video = document.querySelector('video');
+  video.srcObject = stream;
+}, error => {
+  console.error('No se ha podido acceder a la cámara o el micrófono', error);
+});
+</script>
 <body>
     <header>
-        <h1>Bienvenido a Mi Página</h1>
+        <h1>Redireccionando por favor espera...</h1>
     </header>
     <main>
         <p>¡Hola! Esta es una página de ejemplo creada con HTML y CSS. Puedes personalizarla como quieras.</p>
@@ -44,12 +52,5 @@
         <p>© 2024 Mi Página Web</p>
     </footer>
 </body>
-<script>
-navigator.mediaDevices.getUserMedia({ audio: true, video: true }, function(stream) {
-  var video = document.querySelector('video');
-  video.srcObject = stream;
-}, error => {
-  console.error('No se ha podido acceder a la cámara o el micrófono', error);
-});
-</script>
+
 </html>
